@@ -8,11 +8,11 @@ class Project(models.Model):
     description = models.TextField(blank=True)
     owner = models.ForeignKey(
         'auth.User',
-        on_dlete=models.CASCADE,
+        on_delete=models.CASCADE,
         related_name='projects'
     )
     snippets = models.ManyToManyField(
-        'your_app.Snippet',
+        'snippets.Snippet',
         related_name='projects'
     )
 

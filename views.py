@@ -39,7 +39,7 @@ class SnippetDetail(APIView):
 
     def put(self, request : Request, pk, format=None) -> Response:
         snippet = self.get_object(pk)
-        serializer = SnippetSerializer(snippet)
+        serializer = SnippetSerializer(snippet, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
